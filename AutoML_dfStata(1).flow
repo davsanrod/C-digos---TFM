@@ -1,0 +1,73 @@
+{
+  "version": "1.0.0",
+  "cells": [
+    {
+      "type": "cs",
+      "input": "assist"
+    },
+    {
+      "type": "cs",
+      "input": "importFiles"
+    },
+    {
+      "type": "cs",
+      "input": "importFiles [ \"/home/KSDESKTOP/icemd411/Descargas/df_stata.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "setupParse source_frames: [ \"nfs://home/KSDESKTOP/icemd411/Descargas/df_stata.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "parseFiles\n  source_frames: [\"nfs://home/KSDESKTOP/icemd411/Descargas/df_stata.csv\"]\n  destination_frame: \"df_stata.hex\"\n  parse_type: \"CSV\"\n  separator: 44\n  number_columns: 148\n  single_quotes: false\n  column_names: [\"ciclo\",\"ccaa\",\"prov\",\"nvivi\",\"nivel\",\"npers\",\"edad5\",\"relpp1\",\"sexo1\",\"ncony\",\"npadre\",\"nmadre\",\"rellmili\",\"eciv1\",\"prona1\",\"regna1\",\"nac1\",\"exregna1\",\"anore1\",\"nforma\",\"rellb1\",\"edadest\",\"cursr\",\"ncursr\",\"cursnr\",\"ncurnr\",\"hcurnr\",\"rellb2\",\"trarem\",\"ayudfa\",\"ausent\",\"rznotb\",\"vincul\",\"nuevem\",\"ocup1\",\"act11\",\"situ\",\"sp\",\"ducon1\",\"ducon2\",\"ducon3\",\"tcontm\",\"tcontd\",\"dren\",\"dcom\",\"proest\",\"regest\",\"parco1\",\"parco2\",\"horasp1\",\"horasp2\",\"horash1\",\"horash2\",\"horase1\",\"horase2\",\"extra\",\"extpag1\",\"extpag2\",\"extnpg1\",\"extnpg2\",\"rzdifh\",\"traplu\",\"ocuplu1\",\"actplu1\",\"sitplu\",\"horplu\",\"mashor\",\"dismas\",\"rzndish\",\"hordes\",\"busotr\",\"busca\",\"desea\",\"fobact\",\"nbusca\",\"asala\",\"embus\",\"itbu\",\"disp\",\"rzndis\",\"empant\",\"dtant\",\"ocupa\",\"acta\",\"situa\",\"ofemp\",\"sidi1\",\"sidi2\",\"sidi3\",\"sidac1\",\"sidac2\",\"mun1\",\"prore1\",\"repaire1\",\"traant\",\"aoi\",\"cse\",\"factorel\",\"total\",\"hombres\",\"mujeres\",\"genero\",\"edad\",\"noEstudios\",\"educPrim\",\"educSec\",\"educTer\",\"cualificacionAlta\",\"cualificacionMedia\",\"cualificacionBaja\",\"contratoIndefinido\",\"contratoTemporal\",\"empleado\",\"parado\",\"participa\",\"inactivo\",\"si_ERTE\",\"cobra\",\"larga_duracion\",\"desempleado_3meses\",\"desempleo_1año\",\"desempleoMenos1año\",\"agricultura\",\"industa\",\"construccion\",\"servicios\",\"inmigrante\",\"nativo\",\"doblenacionalidad\",\"solo_inscrito\",\"andal\",\"ara\",\"astu\",\"isbal\",\"canar\",\"cant\",\"castleon\",\"castman\",\"cata\",\"valen\",\"extre\",\"gal\",\"mad\",\"mur\",\"nav\",\"vasc\",\"rio\",\"ceumel\"]\n  column_types: [\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Enum\",\"Numeric\",\"Numeric\",\"Numeric\",\"Enum\",\"Numeric\",\"Enum\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Enum\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\"]\n  delete_on_done: true\n  check_header: 1\n  chunk_size: 2021376\n  escapechar: undefined"
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"df_stata.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "getColumnSummary \"df_stata.hex\", \"empleado\""
+    },
+    {
+      "type": "cs",
+      "input": "imputeColumn frame: \"df_stata.hex\", column: \"empleado\""
+    },
+    {
+      "type": "cs",
+      "input": "imputeColumn {\"frame\":\"df_stata.hex\",\"column\":\"empleado\",\"method\":\"mean\",\"groupByColumns\":[\"contratoIndefinido\"]}"
+    },
+    {
+      "type": "cs",
+      "input": "splitFrame"
+    },
+    {
+      "type": "cs",
+      "input": "splitFrame \"df_stata.hex\", [0.75], [\"Train_stata\",\"Test_stata\"], 465075"
+    },
+    {
+      "type": "cs",
+      "input": "runAutoML"
+    },
+    {
+      "type": "cs",
+      "input": "runAutoML {\"input_spec\":{\"training_frame\":\"Train_stata\",\"response_column\":\"empleado\",\"validation_frame\":\"Test_stata\",\"ignored_columns\":[\"ciclo\",\"ccaa\",\"prov\",\"nvivi\",\"nivel\",\"npers\",\"edad5\",\"relpp1\",\"sexo1\",\"ncony\",\"npadre\",\"nmadre\",\"rellmili\",\"eciv1\",\"prona1\",\"regna1\",\"nac1\",\"exregna1\",\"anore1\",\"nforma\",\"rellb1\",\"edadest\",\"cursr\",\"ncursr\",\"cursnr\",\"ncurnr\",\"hcurnr\",\"rellb2\",\"trarem\",\"ayudfa\",\"ausent\",\"rznotb\",\"vincul\",\"nuevem\",\"ocup1\",\"act11\",\"situ\",\"sp\",\"ducon1\",\"ducon2\",\"ducon3\",\"tcontm\",\"tcontd\",\"dren\",\"dcom\",\"proest\",\"regest\",\"parco1\",\"parco2\",\"horasp1\",\"horasp2\",\"horash1\",\"horash2\",\"horase1\",\"horase2\",\"extra\",\"extpag1\",\"extpag2\",\"extnpg1\",\"extnpg2\",\"rzdifh\",\"traplu\",\"ocuplu1\",\"actplu1\",\"sitplu\",\"horplu\",\"mashor\",\"dismas\",\"rzndish\",\"hordes\",\"busotr\",\"busca\",\"desea\",\"fobact\",\"nbusca\",\"asala\",\"embus\",\"itbu\",\"disp\",\"rzndis\",\"empant\",\"dtant\",\"ocupa\",\"acta\",\"situa\",\"ofemp\",\"sidi1\",\"sidi2\",\"sidi3\",\"sidac1\",\"sidac2\",\"mun1\",\"prore1\",\"repaire1\",\"traant\",\"aoi\",\"cse\",\"factorel\",\"total\",\"hombres\",\"mujeres\",\"parado\",\"inactivo\",\"si_ERTE\",\"cobra\",\"larga_duracion\",\"desempleado_3meses\",\"desempleo_1año\",\"desempleoMenos1año\",\"solo_inscrito\"],\"sort_metric\":\"AUTO\"},\"build_control\":{\"project_name\":\"auto_ML_stata\",\"nfolds\":5,\"balance_classes\":true,\"stopping_criteria\":{\"seed\":-1,\"max_models\":3,\"max_runtime_secs\":0,\"max_runtime_secs_per_model\":0,\"stopping_rounds\":3,\"stopping_metric\":\"AUTO\",\"stopping_tolerance\":-1},\"class_sampling_factors\":[],\"max_after_balance_size\":5,\"keep_cross_validation_predictions\":true,\"keep_cross_validation_models\":true,\"keep_cross_validation_fold_assignment\":false},\"build_models\":{\"exclude_algos\":[\"GLM\",\"DRF\",\"GBM\",\"DeepLearning\",\"StackedEnsemble\"],\"exploitation_ratio\":-1,\"monotone_constraints\":[]}}, 'exec'"
+    },
+    {
+      "type": "cs",
+      "input": "getLeaderboard \"auto_ML_stata@@empleado\""
+    },
+    {
+      "type": "cs",
+      "input": "runAutoML"
+    },
+    {
+      "type": "cs",
+      "input": "runAutoML {\"build_control\":{\"project_name\":\"autoML-stata2\",\"nfolds\":5,\"balance_classes\":true,\"stopping_criteria\":{\"seed\":-1,\"max_models\":4,\"max_runtime_secs\":0,\"max_runtime_secs_per_model\":0,\"stopping_rounds\":3,\"stopping_metric\":\"AUTO\",\"stopping_tolerance\":-1},\"class_sampling_factors\":[],\"max_after_balance_size\":5,\"keep_cross_validation_predictions\":true,\"keep_cross_validation_models\":true,\"keep_cross_validation_fold_assignment\":false},\"input_spec\":{\"training_frame\":\"Train_stata\",\"response_column\":\"parado\",\"validation_frame\":\"Test_stata\",\"ignored_columns\":[\"ciclo\",\"ccaa\",\"prov\",\"nvivi\",\"nivel\",\"npers\",\"edad5\",\"relpp1\",\"sexo1\",\"ncony\",\"npadre\",\"nmadre\",\"rellmili\",\"eciv1\",\"prona1\",\"regna1\",\"nac1\",\"exregna1\",\"anore1\",\"nforma\",\"rellb1\",\"edadest\",\"cursr\",\"ncursr\",\"cursnr\",\"ncurnr\",\"hcurnr\",\"rellb2\",\"trarem\",\"ayudfa\",\"ausent\",\"rznotb\",\"vincul\",\"nuevem\",\"ocup1\",\"act11\",\"situ\",\"sp\",\"ducon1\",\"ducon2\",\"ducon3\",\"tcontm\",\"tcontd\",\"dren\",\"dcom\",\"proest\",\"regest\",\"parco1\",\"parco2\",\"horasp1\",\"horasp2\",\"horash1\",\"horash2\",\"horase1\",\"horase2\",\"extra\",\"extpag1\",\"extpag2\",\"extnpg1\",\"extnpg2\",\"rzdifh\",\"traplu\",\"ocuplu1\",\"actplu1\",\"sitplu\",\"horplu\",\"mashor\",\"dismas\",\"rzndish\",\"hordes\",\"busotr\",\"busca\",\"desea\",\"fobact\",\"nbusca\",\"asala\",\"embus\",\"itbu\",\"disp\",\"rzndis\",\"empant\",\"dtant\",\"ocupa\",\"acta\",\"situa\",\"ofemp\",\"sidi1\",\"sidi2\",\"sidi3\",\"sidac1\",\"sidac2\",\"mun1\",\"prore1\",\"repaire1\",\"traant\",\"aoi\",\"cse\",\"factorel\",\"total\",\"hombres\",\"mujeres\",\"participa\",\"inactivo\",\"si_ERTE\",\"cobra\"],\"sort_metric\":\"AUTO\"},\"build_models\":{\"exclude_algos\":[\"DeepLearning\",\"StackedEnsemble\"],\"exploitation_ratio\":-1,\"monotone_constraints\":[]}}, 'exec'"
+    },
+    {
+      "type": "cs",
+      "input": "getLeaderboard \"autoML-stata2@@parado\""
+    }
+  ]
+}

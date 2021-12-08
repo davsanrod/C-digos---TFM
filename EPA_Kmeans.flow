@@ -1,0 +1,57 @@
+{
+  "version": "1.0.0",
+  "cells": [
+    {
+      "type": "cs",
+      "input": "assist"
+    },
+    {
+      "type": "cs",
+      "input": "importFiles"
+    },
+    {
+      "type": "cs",
+      "input": "importFiles [ \"/home/KSDESKTOP/icemd411/TFM/DatosEPA/CSV/EPA_2020T2.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "setupParse source_frames: [ \"nfs://home/KSDESKTOP/icemd411/TFM/DatosEPA/CSV/EPA_2020T2.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "parseFiles\n  source_frames: [\"nfs://home/KSDESKTOP/icemd411/TFM/DatosEPA/CSV/EPA_2020T2.csv\"]\n  destination_frame: \"EPA_2020T2.hex\"\n  parse_type: \"CSV\"\n  separator: 9\n  number_columns: 93\n  single_quotes: false\n  column_names: [\"CICLO\",\"CCAA\",\"PROV\",\"NVIVI\",\"NIVEL\",\"NPERS\",\"EDAD5\",\"RELPP1\",\"SEXO1\",\"NCONY\",\"NPADRE\",\"NMADRE\",\"RELLMILI\",\"ECIV1\",\"PRONA1\",\"REGNA1\",\"NAC1\",\"EXREGNA1\",\"ANORE1\",\"NFORMA\",\"RELLB1\",\"EDADEST\",\"CURSR\",\"NCURSR\",\"CURSNR\",\"NCURNR\",\"HCURNR\",\"RELLB2\",\"TRAREM\",\"AYUDFA\",\"AUSENT\",\"RZNOTB\",\"VINCUL\",\"NUEVEM\",\"OCUP1\",\"ACT1\",\"SITU\",\"SP\",\"DUCON1\",\"DUCON2\",\"DUCON3\",\"TCONTM\",\"TCONTD\",\"DREN\",\"DCOM\",\"PROEST\",\"REGEST\",\"PARCO1\",\"PARCO2\",\"HORASP\",\"HORASH\",\"HORASE\",\"EXTRA\",\"EXTPAG\",\"EXTNPG\",\"RZDIFH\",\"TRAPLU\",\"OCUPLU1\",\"ACTPLU1\",\"SITPLU\",\"HORPLU\",\"MASHOR\",\"DISMAS\",\"RZNDISH\",\"HORDES\",\"BUSOTR\",\"BUSCA\",\"DESEA\",\"FOBACT\",\"NBUSCA\",\"ASALA\",\"EMBUS\",\"ITBU\",\"DISP\",\"RZNDIS\",\"EMPANT\",\"DTANT\",\"OCUPA\",\"ACTA\",\"SITUA\",\"OFEMP\",\"SIDI1\",\"SIDI2\",\"SIDI3\",\"SIDAC1\",\"SIDAC2\",\"MUN1\",\"PRORE1\",\"REPAIRE1\",\"TRAANT\",\"AOI\",\"CSE\",\"FACTOREL\"]\n  column_types: [\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Enum\",\"Numeric\",\"Numeric\",\"Enum\",\"Numeric\",\"Enum\",\"Numeric\",\"Enum\",\"Enum\",\"Numeric\",\"Numeric\",\"Enum\",\"Numeric\",\"Enum\",\"Numeric\",\"Enum\",\"Numeric\",\"Numeric\",\"Numeric\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Numeric\",\"Numeric\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Numeric\",\"Enum\",\"Enum\",\"Enum\",\"Numeric\",\"Numeric\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Numeric\",\"Enum\",\"Enum\",\"Enum\",\"Numeric\",\"Enum\",\"Numeric\"]\n  delete_on_done: true\n  check_header: 1\n  chunk_size: 4034048\n  escapechar: undefined"
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"EPA_2020T2.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "splitFrame"
+    },
+    {
+      "type": "cs",
+      "input": "splitFrame \"EPA_2020T2.hex\", [0.75], [\"Train\",\"Test\"], 745176"
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"Train\""
+    },
+    {
+      "type": "cs",
+      "input": "getColumnSummary \"Train\", \"AOI\""
+    },
+    {
+      "type": "cs",
+      "input": "buildModel \"kmeans\""
+    },
+    {
+      "type": "cs",
+      "input": "buildModel 'kmeans', {\"model_id\":\"kmeans\",\"training_frame\":\"Train\",\"validation_frame\":\"Test\",\"nfolds\":0,\"ignored_columns\":[],\"ignore_const_cols\":true,\"k\":3,\"estimate_k\":false,\"max_iterations\":10,\"standardize\":true,\"init\":\"Furthest\",\"score_each_iteration\":false,\"seed\":-1,\"max_runtime_secs\":0,\"categorical_encoding\":\"AUTO\",\"cluster_size_constraints\":[]}"
+    },
+    {
+      "type": "cs",
+      "input": "getModel \"kmeans\""
+    }
+  ]
+}
