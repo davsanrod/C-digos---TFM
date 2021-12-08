@@ -1,0 +1,28 @@
+# Name the components on this agent
+EPA.sources = spooldir-source  
+EPA.channels = memory-channel
+EPA.sinks = hdfs-sink
+
+# Describe/configure Source
+EPA.sources.spooldir-source.type = spooldir
+EPA.sources.spooldir-source.spoolDir = /home/dsanchez/TFM/Datos
+EPA.sources.spooldir-source.basenameHeader = true
+EPA.sources.spooldir-source.deserializer.maxLineLength = 10000
+
+# Configure the Channel
+EPA.channels.memory-channel.type = memory     
+EPA.channels.memory-channel.capacity = 1000
+EPA.channels.memory-channel.transactionCapacity = 100
+
+# Configure the Sink
+EPA.sinks.hdfs-sink.type = hdfs
+EPA.sinks.hdfs-sink.hdfs.path = /user/dsanchez/EPA
+EPA.sinks.hdfs-sink.hdfs.writeFormat = Text
+EPA.sinks.hdfs-sink.hdfs.fileType = DataStream
+EPA.sinks.hdfs-sink.hdfs.rollInterval = 30
+EPA.sinks.hdfs-sink.hdfs.rollSize = 0
+EPA.sinks.hdfs-sink.hdfs.rollCount = 0
+
+# Bind the source and the sink to the channel
+EPA.sources.spooldir-source.channels = memory-channel
+EPA.sinks.hdfs-sink.channel = memory-channel

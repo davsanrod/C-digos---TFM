@@ -1,0 +1,37 @@
+#Name the components on this agentlume-hive-ingest.sources = src1
+flume-hive-ingest.channels = chan1
+flume-hive-ingest.sinks = fregadero1
+
+# Describe/configure Source
+flume-hive-ingest.sources.src1.type = spooldir
+flume-hive-ingest.sources.src1.channels = chan1
+flume-hive-ingest.sources.src1.spoolDir = /home/dsanchez/TFM/DatosEPA
+
+flume-hive-ingest.sources.src1.interceptors = skipHeadI dateI
+flume-hive-ingest.sources.src1.interceptors.skipHeadI.type = regex_filter
+flume-hive-ingest.sources.src1.interceptors.skipHeadI.regex = ^ Fecha. *
+flume-hive-ingest.sources.src1.interceptors.skipHeadI.excludeEvents = true
+flume-hive-ingest.sources.src1.interceptors.dateI.type = regex_extractor
+flume-hive-ingest.sources.src1.interceptors.dateI.regex = ^ (\ d +) -. *
+flume-hive-ingest.sources.src1.interceptors.dateI.serializers = y
+flume-hive-ingest.sources.src1.interceptors.dateI.serializers.y.name = año
+
+flume-hive-ingest.channels.chan1.type = memoria
+flume-colmena-ingest.channels.chan1.capacity = 1000
+flume-hive-ingest.channels.chan1.transactionCapacity = 100
+
+flume-hive-ingest.sinks.sink1.type = hive
+flume-hive-ingest.sinks.sink1.channel = chan1
+
+flume-hive-ingest.sinks.sink1.type = hive
+flume-hive-ingest.sinks.sink1.channel = chan1
+
+flume-hive-ingest.sinks.sink1.hive.metastore = thirft: //one.hdp: 9083
+flume-hive-ingest.sinks.sink1.hive.database = predeterminado
+flume-hive-ingest.sinks.sink1.hive.table = existencias
+flume-hive-ingest.sinks.sink1.hive.partition =% {year}
+flume-hive-ingest.sinks.sink1.hive.txnsPerBatchAsk = 2
+flume-hive-ingest.sinks.sink1.batchSize = 10
+flume-hive-ingest.sinks.sink1.serializer = delimitado
+flume-hive-ingest.sinks.sink1.serializer.delimiter =,
+flume-hive-ingest.sinks.sink1.serializer.fieldnames = date, open, high, low, close, volume, adj_close

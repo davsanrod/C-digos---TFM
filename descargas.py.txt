@@ -1,0 +1,19 @@
+#!/usr/bin/env python3
+
+import requests
+from bs4 import BeautifulSoup
+
+page = requests.get('https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736176918&menu=resultados&idp=1254735976595#!tabs-1254736030639')
+bSoup = BeautifulSoup(page.content, 'html.parser')
+margen_sup10_items = bSoup.find_all(id="ir_1254736046388")
+
+descargaDatos = []
+for i in bSoup.find(id="ir_1254736046388").find_all('option'):
+    descargaDatos.append(i.get('value'))
+
+valueToBeRemoved = '#'
+result = filter(lambda val: val !=  valueToBeRemoved, descargaDatos) 
+descargaDatos = [value for value in descargaDatos if value != valueToBeRemoved]
+
+for i in descargaDatos:
+    print(i)
